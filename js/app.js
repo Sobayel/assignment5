@@ -70,7 +70,6 @@ for (let seat of seats) {
         grandTotal.innerText = totalPrice;
     });
 }
-
 // customer information
 const name = document.getElementById('name');
 const number = document.getElementById('number');
