@@ -1,5 +1,6 @@
 let totalPrice = 0;
 let seatLimit = 35;
+let selectedSeats = [];
 const seats = document.querySelectorAll('#seat');
 for (let seat of seats) {
     seat.addEventListener('click', function () {
@@ -8,7 +9,6 @@ for (let seat of seats) {
         const totalSeatsLeftText = totalSeatsLeft.innerText;
         const setNewSeat = totalSeatsLeftText - 1;
         totalSeatsLeft.innerText = setNewSeat;
-
         if (setNewSeat === seatLimit) {
             return alert('sorry');
         }
@@ -17,7 +17,13 @@ for (let seat of seats) {
         seat.classList.add('bg-[#1DD100]', 'text-white');
         keyBgChange.classList.add('bg-[#1DD100]');
 
+        // Check if seat is already selected
+        if (selectedSeats.includes(seat.innerText)) {
+            return alert('Seat already selected');
+        }
 
+        // Add seat to selectedSeats array
+        selectedSeats.push(seat.innerText);
         const button = document.getElementById('seat');
         button.addEventListener('click', function () {
             if (!button.disabled) {
@@ -27,8 +33,6 @@ for (let seat of seats) {
                 console.log('Button already selected!');
             }
         });
-
-
 
         // ........seat count..........
         const selectSeat = document.getElementById('selectSeat');
@@ -40,13 +44,8 @@ for (let seat of seats) {
         const seatNumber = seat.innerText;
         const showSeat = document.getElementById('showSeat');
         const p = document.createElement('p');
-        console.log(p);
         p.innerText = seatNumber;
-        var AllSelectSeat=[];
-        AllSelectSeat=p;
         showSeat.appendChild(p)
-        console.log(showSeat);
-        console.log(AllSelectSeat,'array');
         // ..........insect seat name...........
         const showClass = document.getElementById('showClass');
         const className = 'Economoy'
