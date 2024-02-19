@@ -11,7 +11,7 @@ for (let seat of seats) {
         const setNewSeat = totalSeatsLeftText - 1;
         totalSeatsLeft.innerText = setNewSeat;
         if (setNewSeat === seatLimit) {
-            return alert('sorry');
+            return alert('SORRY, Your limit id up');
         }
 
         // background color
@@ -74,6 +74,36 @@ for (let seat of seats) {
         grandTotal.innerText = totalPrice;
     });
 }
+//Coupon Code and Discount price
+const apply = document.getElementById('apply');
+apply.addEventListener('click', function () {
+    const discountInput = document.getElementById('discountInput');
+    const couponInputValue = discountInput.value;
+    if (totalPrice >= 2200) {
+        if (couponInputValue === 'NEW15') {
+            getDiscountPrice = totalPrice * 0.15;
+            const discountPrice = totalPrice - getDiscountPrice
+            const grandTotal = document.getElementById('grandTotal');
+            const grandTotalText = grandTotal.innerText;
+            grandTotal.innerText = discountPrice;
+            const discount = document.getElementById('discount');
+            discount.classList.add('hidden');
+        }
+        else if (couponInputValue === 'Couple 20') {
+            getDiscountPrice = totalPrice * 0.2;
+            const discountPrice = totalPrice - getDiscountPrice
+            const grandTotal = document.getElementById('grandTotal');
+            const grandTotalText = grandTotal.innerText;
+            grandTotal.innerText = discountPrice;
+            const discount = document.getElementById('discount');
+            discount.classList.add('hidden');
+        }
+        else {
+            alert('correct coupon code please,sir')
+            couponInputValue = remove()
+        }
+    }
+})
 
 // customer information
 const name = document.getElementById('name');
@@ -93,6 +123,6 @@ submit.addEventListener('click', function () {
 
 })
 const button = document.getElementById('click')
-button.addEventListener('click',function(){
+button.addEventListener('click', function () {
     location.reload();
 });
