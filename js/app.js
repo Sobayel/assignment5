@@ -4,6 +4,7 @@ let selectedSeats = [];
 const seats = document.querySelectorAll('#seat');
 for (let seat of seats) {
     seat.addEventListener('click', function () {
+
         // .........seat minus..........
         const totalSeatsLeft = document.getElementById('totalSeatsLeft');
         const totalSeatsLeftText = totalSeatsLeft.innerText;
@@ -12,6 +13,7 @@ for (let seat of seats) {
         if (setNewSeat === seatLimit) {
             return alert('sorry');
         }
+
         // background color
         const keyBgChange = seat;
         seat.classList.add('bg-[#1DD100]', 'text-white');
@@ -40,12 +42,14 @@ for (let seat of seats) {
         const selectSeatTextInt = parseInt(selectSeatText);
         const setNewSelectSeat = selectSeatTextInt + 1;
         selectSeat.innerText = setNewSelectSeat;
+
         // ..........insect seat number..........
         const seatNumber = seat.innerText;
         const showSeat = document.getElementById('showSeat');
         const p = document.createElement('p');
         p.innerText = seatNumber;
         showSeat.appendChild(p)
+
         // ..........insect seat name...........
         const showClass = document.getElementById('showClass');
         const className = 'Economoy'
@@ -70,11 +74,11 @@ for (let seat of seats) {
         grandTotal.innerText = totalPrice;
     });
 }
+
 // customer information
 const name = document.getElementById('name');
 const number = document.getElementById('number');
 const email = document.getElementById('email');
-
 submit.addEventListener('click', function () {
     const nameValue = fullName.value;
     const numberValue = number.value;
