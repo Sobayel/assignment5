@@ -90,4 +90,9 @@ submit.addEventListener('click', function () {
         number.value = remove()
         email.value = remove()
     }
+
 })
+const button = document.getElementById('click')
+button.addEventListener('click',function(){
+    location.reload();
+});
